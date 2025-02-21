@@ -1,5 +1,6 @@
 package Messaging_App.Messaging_App;
 
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +21,12 @@ public class    HelloController {
     @GetMapping("/hello/param/{name}")
     public String sayWithPath(@PathVariable String name){
         return "Hello " + name + " from Bridgelabz";
+    }
+
+    //UC-4 Post request with JSON body
+    @PostMapping("/hello/post")
+    public String sayWithPost(@RequestBody UserData user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from Bridgelabz";
     }
 
 }
