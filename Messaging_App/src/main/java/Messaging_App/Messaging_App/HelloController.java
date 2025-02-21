@@ -1,9 +1,6 @@
 package Messaging_App.Messaging_App;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class    HelloController {
@@ -18,6 +15,11 @@ public class    HelloController {
     public String sayHello(@RequestParam(defaultValue = "Neeraj") String name){
         return "Hello " + name;
 
+    }
+    //UC-3 Get request with path variable
+    @GetMapping("/hello/param/{name}")
+    public String sayWithPath(@PathVariable String name){
+        return "Hello " + name + " from Bridgelabz";
     }
 
 }
